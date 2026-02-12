@@ -80,11 +80,12 @@ const Home: React.FC = () => {
                    - Transition is a long 700ms ease for a "floaty" cinematic feel.
                 */}
                 <div className="aspect-[2/3] md:aspect-[3/4.5] bg-white rounded-[4rem] overflow-hidden shadow-[0_30px_60px_rgba(37,99,235,0.08)] border-[6px] border-white relative transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:-translate-y-6 group-hover:rotate-2 group-hover:shadow-[0_60px_100px_rgba(37,99,235,0.15)]">
-                  <img 
-                    src="/immagineprofilonew26.png"
-                    alt="Lorenzo Santarelli Profile"
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
+                  <img
+  src="/immagineprofilonew26.png"
+  alt="Lorenzo Santarelli Profile"
+  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+/>
+
                   
                   {/* Glare Effect: A radial gradient that only appears on hover */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.2)_0%,transparent_50%)]"></div>
