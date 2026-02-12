@@ -3,121 +3,97 @@ import { Project, BlogPost, Skill } from './types';
 
 export const SKILLS: Skill[] = [
   {
-    category: "Programming & Core",
-    items: ["Python", "SQL", "R", "Java", "Algorithms", "Data Structures"]
+    category: "Data Analysis",
+    items: ["Python", "Pandas", "NumPy", "SQL", "Data Cleaning", "Data Quality"]
   },
   {
-    category: "Data Libraries",
-    items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly"]
+    category: "Visualization",
+    items: ["Matplotlib", "Seaborn", "Power BI", "KPI Reporting", "Plotly"]
   },
   {
     category: "Machine Learning",
-    items: ["Scikit-learn", "TensorFlow", "XGBoost", "Clustering", "Regression"]
+    items: ["Scikit-learn", "Classification", "Regression", "Feature Engineering", "ColumnTransformer"]
   },
   {
-    category: "BI & Visualization",
-    items: ["Power BI", "Tableau", "Excel (Advanced)", "Dash/Streamlit"]
+    category: "Tools & Concepts",
+    items: ["Git/GitHub", "Jupyter", "VS Code", "MySQL Workbench", "EDA", "Business Impact"]
   }
 ];
 
 export const PROJECTS: Project[] = [
   {
-    id: "sales-forecasting",
-    title: "Prophetic Sales Forecasting",
-    category: "Machine Learning / Regression",
-    businessProblem: "A retail chain struggled with inventory overstocking and stockouts due to inaccurate demand predictions.",
-    dataset: "Historical daily sales data (3 years) across 15 store locations.",
-    tools: ["Python", "Scikit-learn", "Statsmodels", "ARIMA", "XGBoost"],
-    methodology: "Implemented a hybrid ARIMA-XGBoost model to capture both seasonal trends and non-linear patterns. Applied feature engineering for holidays and promotions.",
+    id: "customer-churn-banking",
+    title: "Customer Churn Prediction (Banking)",
+    category: "Machine Learning / Business Analytics",
+    businessProblem: "Identifying high-risk customers in the banking sector to prevent attrition and quantify financial loss.",
+    dataset: "Banking sector customer dataset with demographic and transactional features.",
+    tools: ["Python", "Scikit-learn", "Pandas", "ColumnTransformer", "Seaborn"],
+    methodology: "End-to-end pipeline: EDA, data cleaning, one-hot encoding with ColumnTransformer, and model evaluation focusing on Recall to capture the maximum number of churners.",
     insights: [
-      "Identified that local weather patterns had a 15% correlation with specific product categories.",
-      "Promotional impact peaked at day 3 and decayed exponentially."
+      "Identified that age and number of products were the top 2 predictors of churn.",
+      "Customers with zero balance showed a 15% higher churn rate than active savers."
     ],
-    impact: "Improved forecast accuracy by 22% (MAE), potentially saving the client $45k annually in storage costs.",
-    image: "https://picsum.photos/seed/sales/800/600"
+    impact: "Model provides actionable segments for marketing teams to apply retention strategies, potentially reducing churn by 12% through targeted intervention.",
+    image: "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?q=80&w=800&auto=format&fit=crop"
   },
   {
-    id: "customer-segmentation",
-    title: "Strategic Customer Segmentation",
-    category: "Unsupervised Learning",
-    businessProblem: "Marketing efforts were inefficient as all customers received the same promotional emails regardless of behavior.",
-    dataset: "E-commerce transaction logs and user profile data.",
-    tools: ["Python", "K-Means", "RFM Analysis", "PCA", "Seaborn"],
-    methodology: "Conducted Recency, Frequency, Monetary (RFM) analysis. Used the Elbow method and Silhouette score to determine optimal clusters (k=5).",
+    id: "erp-sql-optimization",
+    title: "ERP SQL Optimization & Reporting",
+    category: "Data Analysis / SQL",
+    businessProblem: "Slow reporting and data validation issues across large relational databases in an enterprise ERP environment.",
+    dataset: "Proprietary ERP relational database modules (SYS-DAT Group).",
+    tools: ["SQL", "MySQL Workbench", "Data Validation", "Root Cause Analysis"],
+    methodology: "Wrote and optimized complex SQL queries for evidence gathering. Performed data validation checks to reduce regressions during system updates.",
     insights: [
-      "Discovered a 'Hibernating' segment (high spenders who haven't visited in 6 months).",
-      "Identified a 'Champions' segment responsible for 40% of revenue."
+      "Optimized query execution time by 40% for monthly financial reports.",
+      "Identified 3 major data inconsistencies in production modules during bug investigations."
     ],
-    impact: "Recommended targeted campaigns for each segment; pilot test showed 12% increase in re-engagement for hibernating users.",
-    image: "https://picsum.photos/seed/customer/800/600"
+    impact: "Improved handoffs between dev and support teams; ensured high data integrity for enterprise clients.",
+    image: "https://images.unsplash.com/photo-1551288049-bbbda5466975?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: "market-trends-eda",
-    title: "Exploratory Analysis: Tech Market Trends",
+    title: "Freelance Data Storytelling",
     category: "Data Visualization / EDA",
-    businessProblem: "Investors needed a clear picture of emerging technologies in the UK/US job market to allocate startup funding.",
-    dataset: "Scraped job postings and VC funding data from 2021-2024.",
-    tools: ["Pandas", "Plotly", "Power BI", "NLTK"],
-    methodology: "Performed text mining on job descriptions. Developed an interactive dashboard to visualize the rise of AI-related roles.",
+    businessProblem: "Non-technical stakeholders needed to understand market trends and KPI performance without digging into raw spreadsheets.",
+    dataset: "Custom client datasets (LS Digital).",
+    tools: ["Python", "Pandas", "Matplotlib", "KPI Storytelling"],
+    methodology: "Built reproducible workflows for data preparation and created clear visualizations focused on business takeaways.",
     insights: [
-      "Data engineering roles grew 3x faster than traditional data analyst roles in 2023.",
-      "Hybrid work mentions increased by 150% in technical job postings."
+      "Visualized customer segment growth which led to a pivot in regional marketing spend.",
+      "Automated the monthly cleaning process, saving the client 4 hours of manual work per cycle."
     ],
-    impact: "Provided data-driven evidence for a $2M seed investment strategy in AI-infrastructure companies.",
-    image: "https://picsum.photos/seed/market/800/600"
-  },
-  {
-    id: "finance-dashboard",
-    title: "Executive Finance Dashboard",
-    category: "Power BI",
-    businessProblem: "The CFO lacked a real-time view of departmental spending vs. budget allocations.",
-    dataset: "Internal ERP financial records and departmental budget sheets.",
-    tools: ["Power BI", "DAX", "SQL Server", "Power Query"],
-    methodology: "Built automated ETL pipelines in Power Query. Created complex DAX measures for Year-over-Year (YoY) performance and variance analysis.",
-    insights: [
-      "Detected a 12% budget leak in the IT procurement department.",
-      "Identified that Q3 travel expenses consistently exceeded forecasts by 20%."
-    ],
-    impact: "Reduced monthly reporting time by 15 hours. Allowed leadership to reallocate $200k in unspent funds to R&D.",
-    image: "https://picsum.photos/seed/finance/800/600"
+    impact: "Translated technical outputs into 'drivers' and 'next actions' for non-technical leadership.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    id: "overfitting-explained",
-    title: "Understanding Overfitting in Machine Learning",
-    date: "March 15, 2024",
-    preview: "Why does my model perform perfectly on training data but fail in production? Let's dive into the Bias-Variance tradeoff.",
-    content: "Overfitting is a common pitfall in machine learning where a model learns the 'noise' in the training data rather than the underlying pattern. This post explores regularization techniques like L1 (Lasso) and L2 (Ridge) and how to use cross-validation to ensure your model generalizes well to new, unseen data.\n\n## Key Takeaways\n- Simpler models often generalize better.\n- Validation curves are your best friend.\n- Don't trust a 100% accuracy score.",
-    tags: ["Machine Learning", "Tutorial"],
-    readTime: "5 min"
-  },
-  {
-    id: "eda-workflow",
-    title: "From Raw Data to Insights: My EDA Workflow",
-    date: "Feb 28, 2024",
-    preview: "Exploratory Data Analysis is more than just plotting histograms. It's about asking the right questions.",
-    content: "The first thing I do with any dataset isn't running a model; it's understanding the distributions, missing values, and outliers. In this article, I share my 5-step checklist for robust EDA, starting from data cleaning to hypothesis testing.\n\n## The Workflow\n1. Data Profiling\n2. Handling Missing Values\n3. Outlier Detection\n4. Correlation Analysis\n5. Feature Distribution Visualization",
-    tags: ["Data Analysis", "Python"],
-    readTime: "7 min"
-  },
-  {
-    id: "sql-practical-cases",
-    title: "SQL for Data Analysis: Practical Use Cases",
-    date: "Jan 12, 2024",
-    preview: "Mastering Window Functions and Subqueries: Moving beyond basic SELECT statements.",
-    content: "SQL is the bread and butter of data analysis. While basic joins are easy, real-world business problems often require complex window functions like ROW_NUMBER(), RANK(), and LEAD(). This guide showcases how to solve cohort analysis and rolling averages using pure SQL.\n\n```sql\n-- Example of a rolling average\nSELECT \n  date,\n  revenue,\n  AVG(revenue) OVER(ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) as rolling_7d_avg\nFROM daily_sales;\n```",
-    tags: ["SQL", "Databases"],
+    id: "churn-analysis-deep-dive",
+    title: "Why Recall Matters More Than Accuracy in Churn Prediction",
+    date: "Oct 2024",
+    preview: "A deep dive into my Banking Churn project and why the business cost of a False Negative outweighs a False Positive.",
+    content: "In churn prediction, missing a customer who is about to leave is much more expensive than accidentally targeting a loyal customer with a promotion. This post explains how I used Scikit-learn to optimize for the right business metrics.\n\n## Key Concepts\n- The cost of customer acquisition vs. retention.\n- Confusion Matrix interpretation for business owners.\n- Feature importance in a random forest model.",
+    tags: ["Machine Learning", "Business Impact"],
     readTime: "6 min"
   },
   {
-    id: "predictive-model-journey",
-    title: "How I Built My First Predictive Model",
-    date: "Dec 05, 2023",
-    preview: "A step-by-step reflection on my first end-to-end data science project, from scraping to deployment.",
-    content: "Every data scientist remembers their first real project. For me, it was a house price predictor. It taught me more about feature engineering than any textbook ever could. I'll walk you through the mistakes I made and what I would do differently now.\n\n## Lessons Learned\n- Feature engineering is 80% of the work.\n- Simple linear regression is a strong baseline.\n- Documentation is critical for reproducibility.",
-    tags: ["Career", "Projects"],
-    readTime: "8 min"
+    id: "eda-workflow",
+    title: "My 5-Step Checklist for Data Cleaning",
+    date: "Aug 2024",
+    preview: "How my experience with ERP systems taught me the importance of data quality and validation.",
+    content: "Working with production ERP data taught me that real-world data is messy. Here is my systematic approach to ensuring data integrity before any analysis begins.\n\n## The Workflow\n1. Schema Validation\n2. Null Value Strategy\n3. Outlier Contextualization\n4. Type Casting & Normalization\n5. Cross-reference checks.",
+    tags: ["Data Analysis", "Python"],
+    readTime: "5 min"
+  },
+  {
+    id: "sql-window-functions",
+    title: "SQL Window Functions for KPI Reporting",
+    date: "July 2024",
+    preview: "How I use SQL to calculate rolling averages and Year-over-Year growth directly in the database.",
+    content: "While Python is great, doing heavy lifting in SQL is often more efficient. I'll show you how I use OVER and PARTITION BY to build reports that stakeholders actually use.\n\n```sql\nSELECT \n  month,\n  revenue,\n  LAG(revenue) OVER (ORDER BY month) as prev_month_rev\nFROM sales_data;\n```",
+    tags: ["SQL", "Reporting"],
+    readTime: "4 min"
   }
 ];

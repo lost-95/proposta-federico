@@ -17,29 +17,36 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-primary flex items-center gap-2">
-              <span className="w-8 h-8 bg-primary rounded flex items-center justify-center text-white text-sm">LS</span>
-              <span className="hidden sm:inline">Lorenzo Santarelli</span>
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white text-lg font-bold shadow-lg shadow-primary/20 transition-transform group-hover:scale-105">
+                LS
+              </div>
+              <span className="text-xl font-bold text-slate-900 tracking-tight">
+                LS <span className="text-primary">Digital</span>
+              </span>
             </Link>
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`${
+                className={`relative py-2 text-sm font-semibold transition-all duration-300 ${
                   isActive(link.path)
-                    ? 'text-primary border-b-2 border-primary'
-                    : 'text-gray-600 hover:text-primary transition-colors'
-                } py-5 text-sm font-medium`}
+                    ? 'text-primary'
+                    : 'text-slate-500 hover:text-primary'
+                }`}
               >
                 {link.name}
+                {isActive(link.path) && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full transition-all duration-300"></span>
+                )}
               </Link>
             ))}
           </div>
@@ -48,13 +55,13 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-primary focus:outline-none"
+              className="text-slate-600 hover:text-primary focus:outline-none p-2"
             >
-              <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
-                  <path fillRule="evenodd" clipRule="evenodd" d="M18.278 16.864a1 1 0 01-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 01-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 011.414-1.414l4.829 4.828 4.828-4.828a1 1 0 111.414 1.414l-4.828 4.829 4.828 4.828z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path fillRule="evenodd" d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
                 )}
               </svg>
             </button>
@@ -64,17 +71,17 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 fade-in">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-slate-50 fade-in overflow-hidden shadow-xl">
+          <div className="px-4 pt-4 pb-6 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block px-4 py-3 rounded-xl text-base font-bold transition-all ${
                   isActive(link.path)
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-primary'
+                    ? 'bg-primary/5 text-primary'
+                    : 'text-slate-600 hover:bg-slate-50 hover:text-primary'
                 }`}
               >
                 {link.name}

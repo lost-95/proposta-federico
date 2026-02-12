@@ -22,7 +22,9 @@ const Blog: React.FC = () => {
           <h3 className="text-2xl font-bold mb-4">Stay curious about data</h3>
           <p className="text-gray-600 mb-8">I occasionally write about new ML frameworks and industry trends. Follow my journey on LinkedIn for regular updates.</p>
           <a 
-            href="#" 
+            href="https://www.linkedin.com/in/lorenzo-santarelli/" 
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-primary hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition-all"
           >
             Follow on LinkedIn

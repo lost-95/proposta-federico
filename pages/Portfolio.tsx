@@ -40,7 +40,9 @@ const Portfolio: React.FC = () => {
             <p className="text-gray-600">All my projects are open-source and documented on GitHub. Explore my Jupyter notebooks, SQL scripts, and Power BI templates.</p>
           </div>
           <a 
-            href="#" 
+            href="https://github.com/lost-95" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="whitespace-nowrap bg-tech-dark hover:bg-black text-white px-8 py-4 rounded-lg font-bold flex items-center gap-2 transition-all"
           >
             Explore on GitHub
